@@ -1,0 +1,22 @@
+# Gradle
+.gradle
+build/
+
+captures
+
+/local.properties
+
+# IntelliJ .idea folder
+.idea
+gradle.xml
+*.iml
+
+# General
+.DS_Store
+.externalNativeBuild
+
+# VS Code config
+org.eclipse.buildship.core.prefs
+.classpath
+.project
+bin/
