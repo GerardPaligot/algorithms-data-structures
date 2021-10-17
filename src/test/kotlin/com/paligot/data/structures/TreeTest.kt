@@ -51,4 +51,22 @@ class TreeTest {
         assertTrue(node.hasPathSum(30))
         assertFalse(node.hasPathSum(100))
     }
+
+    @Test
+    fun constructBinaryTreeFromInorderAndPostorderTraversal() {
+        val node = createTreeNodePostorder(intArrayOf(9, 3, 15, 20, 7), intArrayOf(9, 15, 7, 20, 3))
+        assertContentEquals(
+            listOf(listOf(3), listOf(9, 20), listOf(15, 7)),
+            node?.levelorder()
+        )
+    }
+
+    @Test
+    fun constructBinaryTreeFromInorderAndPreorderTraversal() {
+        val node = createTreeNodePreorder(intArrayOf(3, 9, 20, 15, 7), intArrayOf(9, 3, 15, 20, 7))
+        assertContentEquals(
+            listOf(listOf(3), listOf(9, 20), listOf(15, 7)),
+            node?.levelorder()
+        )
+    }
 }

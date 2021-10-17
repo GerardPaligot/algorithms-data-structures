@@ -98,3 +98,44 @@ fun TreeNode<Int>.hasPathSum(targetSum: Int): Boolean {
 
     return recursive(this, 0, targetSum)
 }
+
+/**
+ * Time Complexity:     O(N)
+ * Space Complexity:    O(N) + O(H) ~ O(N)
+ */
+fun createTreeNodePostorder(inorder: IntArray, postorder: IntArray): TreeNode<Int>? {
+    val inorderValToIdx = HashMap<Int, Int>().apply {
+        for (i in inorder.indices) this[inorder[i]] = i
+    }
+    fun dfs(idxPostorder: Int, idxStartInorder: Int, idxEndInorder: Int): TreeNode<Int>? {
+        if (idxPostorder > 0 || idxStartInorder > idxEndInorder) return null
+        val rootValue = postorder[idxPostorder]
+        val root = TreeNode(rootValue)
+        val idxRoot = inorderValToIdx[rootValue]!!
+        root.right = dfs(idxPostorder - 1, idxRoot + 1, idxEndInorder)
+        root.left = dfs(idxPostorder - (idxEndInorder - idxRoot + 1), idxStartInorder, idxRoot - 1)
+        return root
+    }
+    return dfs(inorder.size - 1, 0, inorder.size - 1)
+}
+
+/**
+ * Time Complexity:     O(N)
+ * Space Complexity:    O(N) + O(H) ~ O(N)
+ */
+fun createTreeNodePreorder(preorder: IntArray, inorder: IntArray): TreeNode<Int>? {
+    val inorderValToIdx = HashMap<Int, Int>().apply {
+        for (i in inorder.indices) this[inorder[i]] = i
+    }
+    var idxPreorder = 0
+    fun dfs(idxStartInorder: Int, idxEndInorder: Int): TreeNode<Int>? {
+        if (idxStartInorder > idxEndInorder) return null
+        val rootValue = preorder[idxPreorder++]
+        val root = TreeNode(rootValue)
+        val idxRoot = inorderValToIdx[rootValue]!!
+        root.left = dfs(idxStartInorder, idxRoot - 1)
+        root.right = dfs(idxRoot + 1, idxEndInorder)
+        return root
+    }
+    return dfs( 0, preorder.size - 1)
+}
