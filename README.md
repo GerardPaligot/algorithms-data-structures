@@ -18,6 +18,7 @@ Kotlin implementation for main stream data structures and algorithms.
 
 - [BinarySearch](https://github.com/GerardPaligot/algorithms-data-structures/tree/main/src/main/kotlin/com/paligot/algorithms/searching/BinarySearch.kt)
 - [DepthFirstSearch](https://github.com/GerardPaligot/algorithms-data-structures/tree/main/src/main/kotlin/com/paligot/algorithms/searching/DepthFirstSearch.kt)
+- [BreathFirstSearch](src/main/kotlin/com/paligot/algorithms/searching/BreathFirstSearch.kt)
 - [DisjointSet](https://github.com/GerardPaligot/algorithms-data-structures/tree/main/src/main/kotlin/com/paligot/algorithms/searching/DisjointSet.kt)
 
 ### Sorting
