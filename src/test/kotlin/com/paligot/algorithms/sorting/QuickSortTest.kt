@@ -9,4 +9,10 @@ class QuickSortTest {
         val quick = Quick()
         assertContentEquals(intArrayOf(1, 2, 3, 4), quick.sort(intArrayOf(2, 4, 1, 3)))
     }
+
+    @Test
+    fun quickSort2Usage() {
+        val quick = Quick()
+        assertContentEquals(intArrayOf(1, 2, 3, 4), quick.sort2(intArrayOf(2, 4, 1, 3)))
+    }
 }
